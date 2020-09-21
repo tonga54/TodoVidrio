@@ -22,6 +22,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('', 'AdminController@index');
+    Route::get('productos/getAll', 'ProductoController@getAll')->name('productos.getAll');
+    Route::resource('productos', 'ProductoController');
 });

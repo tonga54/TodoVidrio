@@ -65,12 +65,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/admin" class="nav-link active">
+            <!-- <a href="/admin" class="nav-link active"> -->
+            <a href="/admin" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Home</p>
             </a>
           </li>
-          <li class="nav-item has-treeview menu-closed">
+
+          <li class="nav-item">
+            <a href="/admin/productos" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>Productos</p>
+            </a>
+          </li>
+
+          <!-- <li class="nav-item has-treeview menu-closed">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -86,7 +95,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -108,6 +118,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- /.content-header -->
 
+    @foreach (['danger', 'warning', 'success', 'info'] as $key)
+      @if(Session::has($key))
+      <div class="content-header">
+        <div class="alert alert-{{ $key }} alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <span>{{ Session::get($key) }}</span>
+        </div>
+      </div>
+      @endif
+    @endforeach
+    @yield('errors')
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
@@ -142,5 +163,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('@adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('@adminlte/js/adminlte.min.js') }} "></script>
+<script src="{{ asset('@adminlte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('@adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('@adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('@adminlte/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
+<script src="{{ asset('@adminlte/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+@yield('scripts')
 </body>
 </html>
