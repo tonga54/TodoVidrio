@@ -13,6 +13,9 @@
   justify-content: start;
 }
 
+html,body{
+    overflow-x: hidden;
+}
 
 /* line 13, ../../Arafath/CL/january 2020/237. Real Estate/HTML/scss/_extend.scss */
 .appertment_area .single_appertment::before {
@@ -2971,7 +2974,7 @@ h3 {
   height: 100%;
   right: 0;
   bottom: 0;
-  background-image: url(../img/banner/quotation_bg.png);
+  background-image: url(../img/works/8.jpg);
   background-repeat: no-repeat;
   content: '';
   background-size: cover;
