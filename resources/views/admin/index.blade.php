@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 @section('page_title')
-  Bienvenido
+  Panel de administracion
 @stop
 @section('content')
-  <h3>TEST</h3>
+  <h3>Bienvenido</h3>
 @stop

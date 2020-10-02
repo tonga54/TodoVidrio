@@ -36,8 +36,9 @@
         <div class="form-group">
           <label for="">Selecciona las imagenes</label>
           <div class="custom-file">
-            <input type="file" name="imagenes[]" multiple class="custom-file-input form-control @if($errors->productos->has('imagenes'))is-invalid @endif" id="customFile">
-            <label class="custom-file-label" for="customFile">Seleccione</label>
+          <!-- custom-file-input  -->
+            <input type="file" name="imagenes[]" multiple value="{{old('imagenes')}} class="custom-file-input form-control @if($errors->productos->has('imagenes'))is-invalid @endif" id="customFile">
+            <label class="custom-file-label" for="customFile" style="overflow: hidden;">Seleccione</label>
             @foreach ($errors->productos->get('imagenes') as $message)
               <span class="error invalid-feedback">{{ $message}}</span>
             @endforeach
@@ -45,6 +46,11 @@
         </div>
       </div>
     </div>
+    <hr>
+    <div class="row" id="visor_imagenes">
+      <img src="" id="blah" alt="">
+    </div>
+    <hr>
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
@@ -62,9 +68,27 @@
 <script>
   $(document).ready(function () {
     bsCustomFileInput.init();
+    $("#customFile").change(function() {
+      readURL(this);
+    });
   });
+
+  function readURL(input) {
+    $('#visor_imagenes').html("");
+    for(let i = 0; i < input.files.length; i++){
+      var reader = new FileReader();
+      
+      reader.onload = function(e) {
+        $('#visor_imagenes').append("<div class='col-md-3' style='padding: 10px;border: 2px solid #f1f1f1; border-radius: 4px;'><h3>" + (i+1) +"</h3><img style='width: 100%;' src='" + e.target.result + "'></div>");
+      }
+      
+      reader.readAsDataURL(input.files[i]); // convert to base64 string
+    }
+  }
+  
   $("input[data-bootstrap-switch]").each(function(){
       $(this).bootstrapSwitch('state', $(this).prop('checked'));
   });
+  
 </script>
 @stop

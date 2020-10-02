@@ -20,10 +20,23 @@ Route::get('/', function () {
 Auth::routes(['register' => false, 'reset' => false, 'logout' => false]);
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function(){include '/home/nrosales/domains/todovidrio.uy/public_html/index.html';});
+Route::get('/inicio', function(){include '/home/nrosales/domains/todovidrio.uy/public_html/index.html';});
+Route::get('/sobre-nosotros', function(){include '/home/nrosales/domains/todovidrio.uy/public_html/sobre_nosotros.html';});
+Route::get('/productos', 'ProductoController@show_list');
+Route::get('/productos/detalle/{id?}', 'ProductoController@show');
+Route::get('/nuestros-trabajos', function(){include '/home/nrosales/domains/todovidrio.uy/public_html/nuestros_trabajos.html';});
+Route::get('/contacto', function(){include '/home/nrosales/domains/todovidrio.uy/public_html/contacto.html';});
+
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('', 'AdminController@index');
+    Route::get('productos/', 'ProductoController@index');
+    Route::get('productos/create', 'ProductoController@create')->name('productos.create');
+    Route::get('productos/{id}/edit', 'ProductoController@edit')->name('productos.edit');
     Route::get('productos/getAll', 'ProductoController@getAll')->name('productos.getAll');
-    Route::resource('productos', 'ProductoController');
+    Route::post('productos/','ProductoController@store')->name('productos.store');
+    Route::post('productos/update/{id}','ProductoController@update')->name('productos.update');
+    Route::post('productos/{id}/delete','ProductoController@destroy');
+    // Route::resource('productos', 'ProductoController');
 });

@@ -35,6 +35,7 @@
   <table id="tblProductos" class="table table-hover table-bordered text-nowrap">
     <thead>
       <tr>
+        <th>#</th>
         <th>Titulo</th>
         <th>Descripcion</th>
         <th>Estado</th>
@@ -65,8 +66,8 @@
       return response;
     },
     delete: () => {
-      let response = fetch("productos/" + delete_id, {
-        method: "DELETE",
+      let response = fetch("productos/" + delete_id + "/delete", {
+        method: "POST",
         headers: {
           'X-CSRF-TOKEN': '{{ csrf_token() }}'
         }
@@ -108,10 +109,12 @@
       $("#tblProductos").DataTable({
         "responsive": true,
         "autoWidth": false,
-        columns: [{ title: "Titulo", data: "titulo" },
+        columns: [
+              { title: "#", data: "id" },
+              { title: "Titulo", data: "titulo" },
               { title: "Descripcion", data: "descripcion" },
               { title: "Estado", data: "activo", "mRender": function(data, type, row){
-                return (data === 1) ? "<span class='fas fa-check' style='color: green;'></span>" : "<span class='fa fa-times' style='color: red;'></span>";
+                return (data === "1") ? "<span class='fas fa-check' style='color: green;'></span>" : "<span class='fa fa-times' style='color: red;'></span>";
               }},
               {
                 "mData": "",
@@ -126,8 +129,9 @@
                   // return "<a href='productos/" + row.id + "/edit/'>DELETE</a>";
                 }
               }
-              ],
-        data: _data
+            ],
+        data: _data,
+        order: [[ 0, "desc" ]]
       });
     })
     .catch(_data => {

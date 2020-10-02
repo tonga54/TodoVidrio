@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Todo Vidrios | Admin
+  <title>TodoVidrio | Admin
   </title>
 
   <!-- Font Awesome Icons -->
@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Brand Logo -->
     <a href="/admin" class="brand-link">
       <span class="brand-text font-weight-bold">Admin</span>
-      <span class="brand-text font-weight-light">Todo Vidrios</span>
+      <span class="brand-text font-weight-light">TodoVidrio</span>
     </a>
 
     <!-- Sidebar -->
@@ -74,11 +74,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <li class="nav-item">
             <a href="/admin/productos" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-layer-group"></i>
               <p>Productos</p>
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="https://app.crisp.chat/website/21c88b55-7b72-4f68-836b-90c33dc48e2b/inbox/" target="_blank" class="nav-link">
+              <i class="nav-icon fas fa-comments"></i>
+              <p>Ir a Crisp</p>
+            </a>
+          </li>
           <!-- <li class="nav-item has-treeview menu-closed">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>

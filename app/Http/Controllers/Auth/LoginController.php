@@ -40,7 +40,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('auth2.login');
+        return view('auth.login');
     }
 
     // public function logout () {
