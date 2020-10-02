@@ -27,6 +27,7 @@ Route::get('/productos', 'ProductoController@show_list');
 Route::get('/productos/detalle/{id?}', 'ProductoController@show');
 Route::get('/nuestros-trabajos', function(){include '/home/nrosales/domains/todovidrio.uy/public_html/nuestros_trabajos.html';});
 Route::get('/contacto', function(){include '/home/nrosales/domains/todovidrio.uy/public_html/contacto.html';});
+Route::post('/sendMail', 'MailController@send');
 
 
 Route::prefix('admin')->middleware('auth')->group(function () {
