@@ -18,11 +18,11 @@ html,body{
 }
 
 /* line 13, ../../Arafath/CL/january 2020/237. Real Estate/HTML/scss/_extend.scss */
-.appertment_area .single_appertment::before {
+/*.appertment_area .single_appertment::before {
   background-image: -moz-linear-gradient(-91deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.67) 79%, rgba(0, 0, 0, 0.67059) 79%);
   background-image: -webkit-linear-gradient(-91deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.67) 79%, rgba(0, 0, 0, 0.67059) 79%);
   background-image: -ms-linear-gradient(-91deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.67) 79%, rgba(0, 0, 0, 0.67059) 79%);
-}
+}*/
 
 /* Normal desktop :1200px. */
 /* Normal desktop :992px. */
